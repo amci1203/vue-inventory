@@ -1,0 +1,84 @@
+.form-buttons {
+  @mixin button-colors ($color, $text: $color) {
+    border-color: darken($color, 5);
+    background: $color;
+    &:hover {
+      background-color: darken($color, 5);
+      color: $text;
+    }
+  }
+
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+
+  &::before {
+    position: absolute;
+    content: '\A0';
+    top: -1.5rem;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background-color: rgba($white, 0.5);
+  }
+
+  button {
+    position: relative;
+    cursor: pointer;
+    transition: 250ms all ease;
+    padding: 0.5rem 0.25rem;
+    background: $white;
+    border: 3px solid darken($white, 5);
+    border-radius: 2rem;
+    font-weight: 600;
+
+    i {
+      position: absolute;
+      top: 30%;
+      left: 1.75rem;
+    }
+
+    &:hover {
+      background: transparent;
+      color: $white;
+    }
+
+    // &.disabled,
+    &[disabled] {
+      pointer-events: none !important;
+      border-color: $light-gray !important;
+      background: $lighter-gray !important;
+      color: $dark-gray !important;
+    }
+
+    &.dark {
+      @include button-colors($darkest-gray);
+    }
+
+    &.submit {
+      color: $white;
+      @include button-colors($brand-primary, $white);
+    }
+
+    &.delete {
+      color: $white;
+      @include button-colors($brand-danger, $white);
+    }
+
+  }
+}
+
+#side-form .form-buttons {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-auto-flow: row;
+
+  .cancel:hover {
+    background: #CCC;
+    color: inherit;
+  }
+}

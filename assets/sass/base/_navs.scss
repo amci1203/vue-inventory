@@ -1,0 +1,17 @@
+// shared between primary & mobile navs
+$mobile-menu-open-color: $brand-primary;
+$mobile-menu-open-text: white;
+
+.nav {
+    background: $brand-primary;
+    color: white;
+    padding: 0 1.15rem;
+
+    display: flex;
+
+    ul { margin: 0 }
+
+    li {
+        list-style-type: none;
+    }
+}

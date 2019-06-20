@@ -1,0 +1,22 @@
+@mixin display($type, $viewport) {
+  .#{$type}-#{$viewport} {
+    @if $type == show {
+      display: none !important;
+      @include media($viewport) {
+        display: block !important;
+      }
+    }
+    @if $type == hide {
+      display: block !important;
+      @include media($viewport) {
+        display: none !important;
+      }
+    }
+  }
+}
+
+@each $type in hide, show {
+  @each $viewport in xs, sm, md, lg, xl {
+    @include display($type, $viewport)
+  }
+}

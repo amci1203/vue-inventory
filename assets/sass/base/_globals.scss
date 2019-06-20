@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+
+  .scroll-lock {
+    overflow-y: hidden !important
+  }
+}
+
+body {
+  font-family: 'Open Sans', 'Roboto', 'Helvetica', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #242424;
+
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+
+  footer {
+    flex-grow: 1;
+  }
+
+  .heading {
+    @include media(below-md) {
+      text-align: center;
+    }
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .links a.active {
+    pointer-events: none
+  }
+}
+

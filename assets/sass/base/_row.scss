@@ -1,0 +1,48 @@
+@mixin column ($span, $viewport, $margin: 0) {
+  .#{$viewport}-#{$span} {
+    @if $viewport == xs {
+      width: ($span * (100% / 12)) - $margin;
+    }
+    @else {
+      @include media($viewport) {
+        width: ($span * (100% / 12)) - $margin;
+      }
+    }
+  }
+
+  .#{$viewport}-push-#{$span} {
+    @if $viewport == xs {
+      margin-left: ($span * (100% / 12)) - $margin;
+    }
+    @else {
+      @include media($viewport) {
+        margin-left: ($span * (100% / 12)) - $margin;
+      }
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  position: relative;
+
+  &.space-between {
+    justify-content: space-between;
+  }
+
+  & > * {
+    width: 100%;
+  }
+
+  $gutter: 2%;
+  $i: 12;
+
+  @while $i > 0 {
+    @each $size in xl, lg, md, sm, xs {
+      @include column($i, $size, $gutter)
+    }
+    $i: $i - 1;
+  }
+}

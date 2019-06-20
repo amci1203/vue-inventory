@@ -1,0 +1,77 @@
+#sidebar-buttons {
+  $button-size: $sidebar-buttons-w - ($sidebar-buttons-p * 2);
+
+  display: grid;
+  grid-auto-rows: $button-size;
+  gap: 0.75rem;
+  
+  background: darken($sidebar-color, 10);
+  padding: 1rem $sidebar-buttons-p;
+  // color: darken($sidebar-color, 45);
+  color: white;
+
+  .icon {
+    @extend .no-text-decoration;
+    @extend .text-center;
+    
+    position: relative;
+    border-radius: 999px;
+    width: $button-size;
+    height: $button-size;
+    line-height: $button-size;
+    font-size: $sidebar-buttons-w * 0.4;
+    cursor: pointer;
+
+    i.small {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
+
+      font-size: 0.75rem;
+    }
+
+    &:hover {
+      background: darken($sidebar-color, 20)
+    }
+
+    span {
+      @extend .text-right;
+
+      transition: all 300ms ease;
+      opacity: 0;
+      left: 50%;
+      pointer-events: none;
+
+      position: absolute;
+      top: $button-size / 5;
+      width: 120px;
+      padding: 0.25rem 0.25rem;
+      padding-right: 0.5rem;
+      box-shadow: 2px 3px 2px 1px rgba($black, 0.25);
+      
+      font-size: 0.875rem;
+      line-height: 1.35;
+      color: $sidebar-text;
+      background: darken($sidebar-color, 30);
+      border: 2px solid darken($sidebar-color, 20);
+      border-radius: 5rem 1rem 1rem 5rem;
+
+      &.medium {
+        width: 140px;
+      }
+
+      &.long {
+        width: 180px;
+      }
+    }
+    
+    &:hover span {
+      opacity: 1;
+      left: 100%;
+    }
+  }
+
+  @include media (below-md) {
+    display: none;
+  }
+}

@@ -1,0 +1,60 @@
+$sidebar-w: 250px;
+$sidebar-buttons-w: 64px;
+$sidebar-buttons-p: 8px;
+
+main#store {
+  transition: 250ms all ease;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: grid;
+  grid-template-columns: $sidebar-w $sidebar-buttons-w 0.875rem 3fr 0.75rem $sidebar-w 0.875rem;
+  grid-template-areas: "sidebar sidebar-buttons . content content content .";
+  
+  &.sidebar-collapsed {
+    grid-template-columns: 0 $sidebar-buttons-w 0.875rem 3fr 0.75rem $sidebar-w 0.875rem;
+    aside#sidebar {
+      pointer-events: none;
+      transform: scalex(0)
+    }
+  }
+  
+  &.form-open {
+    grid-template-areas: "sidebar sidebar-buttons . content . sidebar-form sidebar-form";
+  }
+
+  aside#sidebar {
+    grid-area: sidebar;
+  }
+
+  aside#sidebar-buttons {
+    grid-area: sidebar-buttons;
+  }
+
+  section#content {
+    display: grid;
+    grid-area: content;
+
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 5rem;
+    column-gap: 0.625rem;
+    row-gap: 1.5rem;
+
+    padding: 1rem 0;
+
+    .heading {
+      grid-column: 1 / -1;
+      align-self: end;
+
+      margin: 0;
+      border-bottom: 1px solid $light-gray;
+    }
+  }
+
+  aside#side-form {
+    grid-area: sidebar-form;
+  }
+}

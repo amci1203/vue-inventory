@@ -1,0 +1,66 @@
+.form-field.input {
+  $input-active-color: lighten($brand-primary, 10);
+
+  position: relative;
+  margin: 1rem 0 2rem;
+
+  input {
+    position: relative;
+    font-size: 1.125rem;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $light-gray;
+
+    &.light {
+      color: white;
+      border-bottom-color: $lightest-gray;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ label,
+    &:valid ~ label {
+      top: -20px;
+      font-size: 0.875rem;
+      color: $input-active-color;
+    }
+
+    &:focus ~ .bar {
+      transform: scaleX(1)
+    }
+  }
+
+  .bar {
+    transition: 300ms all ease;
+    position: absolute;
+    z-index: 1000;
+    content: 'AAAA';
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: $brand-primary;
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+
+  label {
+    transition: 200ms all ease;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    color: $gray;
+    font-size: 1.125rem;
+    font-weight: normal;
+    pointer-events: none;
+
+    &.light {
+      color: $lighter-gray
+    }
+  }
+}

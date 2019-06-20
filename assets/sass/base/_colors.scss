@@ -1,0 +1,25 @@
+$black         : #000000;
+$darkest-gray  : lighten(black, 10);
+$darker-gray   : lighten(black, 25);
+$dark-gray     : lighten(black, 35);
+$gray          : lighten(black, 50);
+$light-gray    : lighten(black, 65);
+$lighter-gray  : lighten(black, 75);
+$lightest-gray : lighten(black, 90);
+$white         : #FFFFFF;
+
+$main-blue    : #15217F;
+$deep-blue    : #002A54;
+$deeper-blue  : #212132;
+
+$light-yellow : #FFDF7C;
+$sunny-yellow : #F7C600;
+$beige        : #FAF0CA;
+
+$brand-default   : $lightest-gray;
+$brand-primary   : $main-blue;
+$brand-secondary : $sunny-yellow;
+$brand-success   : rgb(92, 184, 92);
+$brand-info      : rgb(91, 192, 222);
+$brand-warning   : rgb(240, 173, 78);
+$brand-danger    : rgb(217, 83, 79);

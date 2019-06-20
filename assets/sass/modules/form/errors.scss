@@ -1,0 +1,13 @@
+.form-errors {
+  background: lighten($brand-warning, 15);
+  color: $darkest-gray;
+  padding: 0.625rem;
+  border-radius: 2rem;
+
+  & > * {
+    margin: 0.25rem 0;
+    &::before {
+      content: '>\A0';
+    }
+  }
+}

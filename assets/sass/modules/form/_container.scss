@@ -1,0 +1,11 @@
+.form-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .label {
+    display: inline-block;
+    font-weight: 300;
+    font-size: 1.125rem;
+  }
+}

@@ -1,0 +1,72 @@
+.card {
+  display: grid;
+  grid-template-columns: 2fr 1fr 60px;
+  grid-template-rows: 2rem 1.25rem;
+
+  grid-template-areas:
+    "title    title   stock"
+    "modified actions stock"
+  ;
+
+  transition: 250ms border-color ease;
+  border-radius: 0.875rem;
+  padding: 0.5rem 0.625rem;
+  row-gap: 0.625rem;
+  column-gap: 0.5rem;
+  border: 2px solid transparent;
+
+  &:hover {
+    border-color: $gray;
+  }
+  &.low-stock {
+    &:hover {
+      border-color: $low-red;
+    }
+    .title,
+    .stock {
+      color: lighten($low-red, 5);
+    }
+  }
+
+  .title {
+    @extend .no-text-overflow;
+
+    grid-area: title;
+    align-self: end;
+
+    font-size: 1.5rem;
+    font-weight: 100;
+
+    margin: 0;
+    border-bottom: 1px solid $dark-gray;
+
+  }
+
+  .stock {
+    grid-area: stock;
+    justify-self: center;
+    align-self: center;
+
+    font-size: 1.5rem;
+  }
+
+  .actions {
+    @extend .text-right;
+    .fas,
+    .far {
+      cursor: pointer;
+
+      &:nth-child(n+2) {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  .last-modified {
+    grid-area: modified;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+
+}

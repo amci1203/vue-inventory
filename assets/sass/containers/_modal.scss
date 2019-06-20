@@ -1,0 +1,91 @@
+.modal.body {
+  position: relative;
+  max-width: 90vw;
+  min-width: 280px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+
+  & > .title {
+    text-align: center;
+    width: 80%;
+    margin: 1.5rem auto 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  &.filled {
+    background: $white;
+    border-radius: 0.5rem;
+  }
+  
+  &.zoom-anim {
+    transition: 100ms ease;
+    transform: scale(0.5);
+  }
+  &.fade-anim {
+    transition: 150ms ease;
+    opacity: 0;
+  }
+
+  @include media (sm) {
+    width: 70vw;
+    max-width: 600px;
+    &.small {
+      min-width: 480px;
+    }
+  }
+
+  @include media (md) {
+    min-width: 600px;
+    &.large {
+      width: 960px;
+    }
+    &.fluid {
+      width: 100%
+    }
+  }
+
+  [data-close] {
+    position: absolute;
+    cursor: pointer;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.325rem;
+
+    @extend .fas;
+    &::before {
+      content: fa-content($fa-var-times-circle)
+    }
+
+    &:hover {
+      color: #c00;
+    }
+  }
+}
+
+.modal.overlay {
+  position: fixed;
+  display: flex;
+  z-index: -1000;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  justify-content: center;
+  align-items: center;
+  
+  background: rgba($black, 0.75);
+  
+  &.open {
+    opacity: 1;
+    z-index: 1000;
+
+    .modal.body.zoom-anim {
+      transform: scale(1);
+    }
+    .modal.body.fade-anim {
+      opacity: 1;
+    }
+  }
+}

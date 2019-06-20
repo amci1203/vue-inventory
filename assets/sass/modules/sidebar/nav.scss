@@ -1,0 +1,80 @@
+#sidebar {
+  $sidebar-accent: darken($sidebar-color, 15);
+
+  // transition: 250ms all ease;
+  background: $sidebar-color;
+  color: $sidebar-text;
+  box-shadow: 3px 0 3px rgba($black, 0.35);
+  padding: 1.125rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .title {
+    margin-top: 0;
+    font-weight: 100;
+    font-size: 1.65rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  input {
+    display: block;
+    margin: 1rem 0 1.25rem;
+    padding: 0.25rem 0.875rem;
+    background: $sidebar-accent;
+    border: none;
+    color: $white;
+    font-size: 1.15rem;
+
+    &::placeholder {
+      color: #FFF;
+      opacity: 0.75;
+    }
+  }
+
+  .filter {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.15rem;
+
+    i {
+      margin-right: 0.875rem;
+      color: $sidebar-accent;
+    }
+
+    select {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid $sidebar-accent;
+      flex-grow: 1;
+      font-size: 1.15rem;
+    }
+  }
+
+  .list {
+    padding: 0;
+    
+    a {
+      @extend .no-text-decoration;
+      display: block;
+      margin: 0.25rem auto;
+      padding: 0.5rem 0.95rem;
+      color: #FFF;
+      border-radius: 40px;
+
+      &:hover,
+      &.active {
+        background: $sidebar-accent;
+      }
+      &.active {
+        color: darken($sidebar-accent, 15);
+      }
+    }
+  }
+
+  @include media (below-md) {
+    display: none;
+  }
+}
