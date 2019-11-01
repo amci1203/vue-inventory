@@ -29,7 +29,7 @@
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.1.0",
-    "sequelize": "^4.43.0",
+    "sequelize": "^5.15.1",
     "vuex-cache": "^2.1.0",
     "vuex-persistedstate": "^2.5.4"
   },
