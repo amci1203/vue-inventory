@@ -26,7 +26,7 @@
     "nuxt-vuex-localstorage": "^1.2.6",
     "pg": "^7.8.1",
     "pg-hstore": "^2.3.2",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.1.0",
     "sequelize": "^4.43.0",
