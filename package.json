@@ -21,7 +21,7 @@
     "fs-extra": "^7.0.1",
     "module-alias": "^2.2.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.4.0",
     "nuxt-vuex-localstorage": "^1.2.6",
     "pg": "^7.8.1",
